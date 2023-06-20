@@ -57,7 +57,7 @@ const Header = () => {
                  obcaecati libero et quia tempora excepturi 
                  quis alias?
             </p>
-            <button className="btn">Shop now</button>
+            <button className="btn hero__left-btn">Shop now</button>
         </div>
         <div className="hero__right">
             <div className="images">
@@ -169,7 +169,7 @@ const Header = () => {
             </div>
             <div className="footer__email">
                 <input type="email" name='email' placeholder='Email' className='footer__email-inp'/>
-                <button className="footer__btn">Subscribe</button>
+                <button className="footer__btn" formAction='https://mail.google.com/mail/stasrechimciuc/0/#inbox'>Subscribe</button>
             </div>
         </form>
         <footer className="footer__copyright">© 2023 <span>|Cosy Heaven|</span>All rights reserved</footer>
