@@ -1,0 +1,32 @@
+.hamburger-header{
+    background: var(--white-color);
+    height: 100%;
+    width: 100%;
+}
+
+.hamburger-link{
+    display: block;
+    padding: 5px;
+    margin: 5px 0;
+    height: 60px;
+    align-items: flex-start;
+    transition: var(--transition);
+    font-size: 2rem;
+    z-index: 1000;
+}
+.hamburger-link:hover{
+    transform: translateX(7px);
+    background: var(--main-color);
+}
+.hamburger-header{
+    display: flex;
+    justify-content: space-between;
+}
+.menu-icon{
+    font-size: 2rem;
+    margin: .5rem;
+}
+.bm-menu-wrap{
+    width: 100%!important;
+    
+}
