@@ -12,20 +12,13 @@ import HamburgerMenu from '../Hamburger/Hamburger'
 
 const Header = () => {
     const { windowWidth } = useGlobalContext()
-    /* sa pun in context.jsx useeffectu si windowwidth  ---> */
-
-    /* import winwidth aici si useeffect fac ceva cu dansu */
-    /* daca e width < 480 pun hamburger altfel tot musoru din header */
-    /* cand termin hamburger fac new branch in git bush  */
-    /* media query basic in app css ---> */
-    /* media query pt fiecare musor in header css */
 
     return (
     <div className="home-section">
-    {  windowWidth < 480 ? 
+    {  windowWidth < 1024 ? 
     <div className="hamburger-header">
-        <HamburgerMenu />
         <h2 className='hamburger-title'>Cosy<span className='header__left-span'>Heaven</span></h2>
+        <HamburgerMenu />
     </div> :
     <header className='header'>
         <div className="header__left">
@@ -53,9 +46,7 @@ const Header = () => {
             <p className='hero__left-text'>Lorem ipsum, dolor sit amet consectetur 
                 adipisicing elit. Iusto, at sed omnis 
                 corporis doloremque possimus velit! 
-                Repudiandae nisi odit, aperiam odio ducimus,
-                 obcaecati libero et quia tempora excepturi 
-                 quis alias?
+                corporis doloremque possimus velit! 
             </p>
             <button className="btn hero__left-btn">Shop now</button>
         </div>

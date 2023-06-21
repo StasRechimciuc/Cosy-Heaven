@@ -316,7 +316,71 @@ box-shadow: var(--light-shadow);
 /* =============MEDIUM DEVICES(MEDIA QUERY)====================== */
 
 @media screen and (max-width:1024px) {
-    
+    .home-section{
+        overflow-x: hidden;
+    }
+    .hero__left h2{
+        width: 50vw;
+    }
+    .hero__left-text{
+        width: 100vw;
+    }
+    .home-section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5rem;
+    }
+    .sec-img img{
+        width: 55vw!important;
+    }
+    .hero{
+        display: flex;
+        flex-direction: column;
+    }
+    .featured__content-images{
+        display: flex;
+        flex-direction: column;
+    }
+    .featured__content-images img{
+        width: 90vw!important;
+    }
+    .featured__content-info{
+        font-size: 1.7rem;
+    }
+    .featured__content-img:hover .searchIcon{
+        opacity: 1;
+        transform: translate(330px,100px);
+    }
+    .cards{
+        margin-top: 30rem;
+        text-align: center;
+        height: 100%;
+    }
+    .cards__services{
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .cards__title{
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+    .card__service-article{
+        height: auto;
+    }
+    .cards__title-h4{
+        font-size: 1.7rem!important;
+        border: none;
+        text-align: left;
+    }
+    .footer__join h2{
+        font-size: 2rem!important;
+    }
+    .footer-info{
+        display: flex;
+        flex-direction: column;
+    }
   }
   
   /* =============SMALL DEVICES(MEDIA QUERY)====================== */
@@ -370,7 +434,7 @@ box-shadow: var(--light-shadow);
         width: 90vw!important;
     }
     .cards{
-        margin-top: 40rem;
+        margin-top: 45rem;
         text-align: center;
         height: 100%;
     }
@@ -387,7 +451,7 @@ box-shadow: var(--light-shadow);
         border-bottom: 2px solid var(--main-color);
         border-right:0;
         font-size: 1.7rem!important;
-    }
+    } 
     .cards__services{
         margin-top: 1rem;
         flex-direction: column;
@@ -398,6 +462,13 @@ box-shadow: var(--light-shadow);
     }
     .footer__email{
         margin: 20px 0;
+    }
+    .footer__join{
+        margin-left: 1rem;
+    }
+    .footer__join p{
+        font-size: 1.3rem;
+        width: 100%;
     }
     .footer__copyright{
         font-size: 1.5rem;
