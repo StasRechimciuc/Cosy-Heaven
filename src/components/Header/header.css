@@ -265,7 +265,7 @@ box-shadow: var(--light-shadow);
 .footer__copyright{
     background-color: #222222;
     color: var(--white-color);
-    font-size: 1.5rem;
+    font-size: 1rem;
     height: 80px;
     display: flex;
     align-items: center;
@@ -273,7 +273,6 @@ box-shadow: var(--light-shadow);
 }
 .footer__copyright span{
     color: var(--main-color);
-    font-weight: bold;
 }
 
 /* =============MEDIUM DEVICES(MEDIA QUERY)====================== */

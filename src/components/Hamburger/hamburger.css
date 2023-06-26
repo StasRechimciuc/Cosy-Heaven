@@ -132,6 +132,9 @@
       .burger-bar.clicked:nth-child(2) {
         transform: rotate(-45deg) translate(10px, -5px);
       }
+      .hamburger-links{
+        margin-left: 0;
+      }
   }
 /* --------------Small Devices--------------------------- */
   @media screen and (max-width:480px) {
@@ -148,5 +151,8 @@
       .menu.open .header__left-links{
         font-size: 1.2rem;
         margin: 0;
+      }
+      .hamburger-links{
+        margin-left: 0;
       }
   }

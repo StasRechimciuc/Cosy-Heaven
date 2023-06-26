@@ -62,7 +62,7 @@ body{
   overflow-x: hidden;
 }
 
-/* =============MEDIUM DEVICES(MEDIA QUERY)====================== */
+/* =============MEDIUM DEVICES QUERY==================== */
 
 @media screen and (max-width:1024px) {
   h1,h2,h3,h4,h5,h6{
@@ -74,7 +74,7 @@ body{
     }
 }
 
-/* =============SMALL DEVICES(MEDIA QUERY)====================== */
+/* =============SMALL DEVICES(MEDIA QUERY)=============== */
 
 @media screen and (max-width:480px) {
   
