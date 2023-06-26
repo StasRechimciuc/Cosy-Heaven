@@ -1,5 +1,6 @@
 import React from 'react'
 import { useGlobalContext } from '../../context'
+
 const Products = () => {
      const {  } = useGlobalContext()
   return (

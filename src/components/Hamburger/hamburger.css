@@ -10,7 +10,9 @@
     align-items: center;
     width: 90vw;
   }
-
+  .hamburger-title{
+    font-family: 'Dancing Script', cursive;
+  }
   .burger-menu {
     height: 5em;
     display: flex;
@@ -90,6 +92,13 @@
     transition: transform 0.3s ease-in-out;
   }
   
+  .menu.open .header__left-links{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2rem;
+  }
+
   .hamburger-link:hover::after {
     transform: scaleX(1);
   }
@@ -130,10 +139,14 @@
         width: 40px;
     }
     .burger-bar.clicked:nth-child(1) {
-        transform: rotate(45deg) translate(2px, -1px);
+        transform: rotate(45deg) translate(1px, -1px);
       }
       
       .burger-bar.clicked:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: rotate(-45deg) translate(5px, -10px);
+      }
+      .menu.open .header__left-links{
+        font-size: 1.2rem;
+        margin: 0;
       }
   }

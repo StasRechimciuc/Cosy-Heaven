@@ -3,12 +3,15 @@ import { BsCartPlusFill } from 'react-icons/bs';
 import { GrLogin } from 'react-icons/gr';
 import './hamburger.css';
 
+import { Link } from 'react-router-dom'
+
 const HamburgerMenu = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
+  }
+
 
   return (
     <div>
@@ -19,11 +22,11 @@ const HamburgerMenu = () => {
         </div>
       </nav>
       <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
-        <ul className="hamburger-links">
-          <li><a href="#" className="hamburger-link">Home</a></li>
-          <li><a href="#" className="hamburger-link">About</a></li>
-          <li><a href="#" className="hamburger-link">Products</a></li>
-        </ul>
+        <ul className='header__left-links'>
+                <li onClick={handleMenuToggle}><Link to="/">Home</Link></li>
+                <li onClick={handleMenuToggle}><Link to="/About">About</Link></li>
+                <li onClick={handleMenuToggle}><Link to="/Products">Products</Link></li>
+            </ul>
         <div className="header__right">
           <div className="header__right-cart">
             <a className="header__right-text">Cart</a>

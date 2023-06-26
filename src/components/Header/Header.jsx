@@ -1,45 +1,16 @@
 import { useGlobalContext } from '../../context'
-import {BsCartPlusFill} from 'react-icons/bs'
 
-import {GrLogin} from 'react-icons/gr'
+import { Link } from 'react-router-dom'
+
 import {BsSearch} from 'react-icons/bs'
 import {GiArchiveResearch} from 'react-icons/gi'
 import {BiHappyAlt} from 'react-icons/bi' 
 import {GiWoodBeam} from 'react-icons/gi'
-
-import '../Hamburger/hamburger.css'
-import HamburgerMenu from '../Hamburger/Hamburger'
-
+/* de adaugat Link la icon din featured__content si trec la router pages  */
 const Header = () => {
-    const { windowWidth } = useGlobalContext()
 
     return (
     <div className="home-section">
-    {  windowWidth < 1024 ? 
-    <div className="hamburger-header">
-        <h2 className='hamburger-title'>Cosy<span className='header__left-span'>Heaven</span></h2>
-        <HamburgerMenu />
-    </div> :
-    <header className='header'>
-        <div className="header__left">
-            <h2 className='header__left-title'>Cosy<span className='header__left-span'>Heaven</span></h2>
-        </div>
-        <ul className='header__left-links'>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Products</a></li>
-        </ul>
-        <div className="header__right">
-            <div className='header__right-cart'>
-                <a className='header__right-text'>Cart</a>
-                <BsCartPlusFill className='header__icon'/>
-            </div>
-            <div className="header__right-login">
-                <a className='header__right-text'>Login</a>
-                <GrLogin className='header__icon'/>
-            </div>
-        </div>
-    </header>}
     <div className="hero">
         <div className="hero__left">
             <h2>Design Your <br/>Comfort Zone</h2>
@@ -48,7 +19,7 @@ const Header = () => {
                 corporis doloremque possimus velit! 
                 corporis doloremque possimus velit! 
             </p>
-            <button className="btn hero__left-btn">Shop now</button>
+            <Link to="/Products"><button className="btn featured__content-btn">Shop Now</button></Link>
         </div>
         <div className="hero__right">
             <div className="images">
@@ -97,7 +68,7 @@ const Header = () => {
                     </div>
                 </div>
             </div> 
-            <button className="btn featured__content-btn">All products</button>
+            <Link to="/Products"><button className="btn featured__content-btn">All products</button></Link>
         </div>
     </section>
 

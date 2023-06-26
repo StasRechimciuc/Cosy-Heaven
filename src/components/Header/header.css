@@ -1,52 +1,5 @@
-.header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 .home-section{
     margin:1rem 2rem;
-}
-.hero__left h2{
-    font-size: 3rem;
-}
-.hero__left p{
-    font-size: 1.5rem;
-}
-.header__left-links{
-    display: flex;
-    gap: 2rem;
-    font-size: 1.2rem;
-    margin-left: 4rem;
-}  
-.header__right{
-    display: flex;
-    gap: 2rem;
-    font-size: 1.5rem;
-}
-.header__right-cart,
-.header__right-login{
-    display: flex;
-    align-items: center;
-    gap: .2rem;
-    color: var(--sec-color-variant);
-}
-.header__right-text{
-    transition:var(--transition);
-    color: var(--sec-color-variant);
-}
-.header__right-text:hover{
-    border-bottom: none;
-    transform: translateX(-2px);
-}
-.header__left-title,
-.header__left-span{
-    letter-spacing: var(--spacing);
-    cursor: pointer;
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.2rem;
-}
-.header__left-span{
-    color: var(--main-color);
 }
 .hero{
     display: flex;
@@ -61,6 +14,11 @@
     flex-direction: column;
     height: auto;
 }
+
+.hero__left a:hover{
+    border-bottom: 0;
+}
+
 .hero__left-text{
     font-size: 1.4rem;
     line-height: 2.2rem;
@@ -135,6 +93,11 @@ box-shadow: var(--light-shadow);
     align-items: center;
     padding: 2rem;
 }
+
+.featured__content a:hover{
+    border-bottom: 0;
+}
+
 .featured__content-images{
     display: flex;
     align-items: center;
