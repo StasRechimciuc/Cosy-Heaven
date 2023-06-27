@@ -1,12 +1,14 @@
 import { useGlobalContext } from '../../context'
 
+import img1 from '../../assets/mainImg.jpeg'
+
 import { Link } from 'react-router-dom'
 
 import {BsSearch} from 'react-icons/bs'
 import {GiArchiveResearch} from 'react-icons/gi'
 import {BiHappyAlt} from 'react-icons/bi' 
 import {GiWoodBeam} from 'react-icons/gi'
-/* de adaugat Link la icon din featured__content si trec la router pages  */
+
 const Header = () => {
 
     return (
@@ -24,7 +26,7 @@ const Header = () => {
         <div className="hero__right">
             <div className="images">
                 <div className="main-img img">
-                    <img src="https://react-course-comfy-sloth-store.netlify.app/static/media/hero-bcg.a876f19f6786a3aca992.jpeg" alt="mainImg" />
+                    <img src={img1} alt="mainImg" />
                 </div>
                 <div className="sec-img img">
                     <img src="https://react-course-comfy-sloth-store.netlify.app/static/media/hero-bcg-2.789918645915c8acb36f.jpeg" alt="secImg" />

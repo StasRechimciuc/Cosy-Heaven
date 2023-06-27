@@ -1,0 +1,25 @@
+const images = [
+    "https://www.course-api.com/images/store/product-1.jpeg",
+    "https://www.course-api.com/images/store/product-2.jpeg",
+    "https://www.course-api.com/images/store/product-3.jpeg",
+    "https://www.course-api.com/images/store/product-4.jpeg",
+    "https://www.course-api.com/images/store/product-5.jpeg",
+    "https://www.course-api.com/images/store/product-6.jpeg",
+    "https://www.course-api.com/images/store/product-7.jpeg",
+    "https://www.course-api.com/images/store/product-8.jpeg",
+    "https://www.course-api.com/images/store/product-9.jpeg",
+    "https://www.course-api.com/images/store/product-10.jpeg",
+    "https://www.course-api.com/images/store/product-11.jpeg",
+    "https://www.course-api.com/images/store/product-12.jpeg",
+    "https://www.course-api.com/images/store/product-13.jpeg",
+    "https://www.course-api.com/images/store/product-14.jpeg",
+    "https://www.course-api.com/images/store/product-15.jpeg",
+    "https://www.course-api.com/images/store/product-16.jpeg",
+    "https://www.course-api.com/images/store/product-17.jpeg",
+    "https://www.course-api.com/images/store/product-18.jpeg",
+    "https://www.course-api.com/images/store/product-19.jpeg",
+    "https://www.course-api.com/images/store/product-20.jpeg",
+    "https://www.course-api.com/images/store/product-21.jpeg",
+    "https://www.course-api.com/images/store/product-22.jpeg"
+]
+export default images

@@ -15,12 +15,12 @@ useEffect(() => {
       window.removeEventListener('resize', handleWindowResize);
     };
   }, []);
-
+const log = console.log
   return (
         <AppContext.Provider value={{ 
           windowWidth,
-          setWindowWidth 
-          
+          setWindowWidth,
+          log
           }}>
             {children}
         </AppContext.Provider>
