@@ -1,6 +1,7 @@
 import { useGlobalContext } from '../../context'
 
 import img1 from '../../assets/mainImg.jpeg'
+import img2 from '../../assets/secImg.jpeg'
 
 import { Link } from 'react-router-dom'
 
@@ -29,7 +30,7 @@ const Header = () => {
                     <img src={img1} alt="mainImg" />
                 </div>
                 <div className="sec-img img">
-                    <img src="https://react-course-comfy-sloth-store.netlify.app/static/media/hero-bcg-2.789918645915c8acb36f.jpeg" alt="secImg" />
+                    <img src={img2} alt="secImg" />
                 </div>
             </div>
         </div>

@@ -3,6 +3,8 @@ import { useGlobalContext } from '../../context'
 import {Link} from 'react-router-dom'
 import images from '../images'
 
+import { nanoid } from 'nanoid'
+
 import {BsSearch} from 'react-icons/bs'
 import {FaBars, FaSortAmountUpAlt} from 'react-icons/fa'
 
@@ -80,56 +82,23 @@ const Products = () => {
       </section>
 
       <div className="allProducts">
-        <div className="allProducts-image">
-          <img src="https://www.course-api.com/images/store/product-11.jpeg" alt="" className='products-img'/>
-        <div className="allProducts-info">
-            <p>Wooden desk</p>
-            <span>$245.20</span>
-          </div>
-        </div>
-        <div className="allProducts-image">
-        <BsSearch className='allProducts-icon'/>
-            <img src="https://www.course-api.com/images/store/product-11.jpeg" alt="" className='products-img'/>
-        <div className="allProducts-info">
-            <p>Wooden desk</p>
-            <span>$245.20</span>
-          </div>
-        </div>
-        <div className="allProducts-image">
-          <img src="https://www.course-api.com/images/store/product-11.jpeg" alt="" className='products-img'/>
-        <div className="allProducts-info">
-            <p>Wooden desk</p>
-            <span>$245.20</span>
-          </div>
-        </div>
-        <div className="allProducts-image">
-          <img src="https://www.course-api.com/images/store/product-11.jpeg" alt="" className='products-img'/>
-        <div className="allProducts-info">
-            <p>Wooden desk</p>
-            <span>$245.20</span>
-          </div>
-        </div>
-        <div className="allProducts-image">
-          <img src="https://www.course-api.com/images/store/product-11.jpeg" alt="" className='products-img'/>
-        <div className="allProducts-info">
-            <p>Wooden desk</p>
-            <span>$245.20</span>
-          </div>
-        </div>
-        <div className="allProducts-image">
-          <img src="https://www.course-api.com/images/store/product-11.jpeg" alt="" className='products-img'/>
-        <div className="allProducts-info">
-            <p>Wooden desk</p>
-            <span>$245.20</span>
-          </div>
-        </div>
-        <div className="allProducts-image">
-          <img src="https://www.course-api.com/images/store/product-11.jpeg" alt="" className='products-img'/>
-        <div className="allProducts-info">
-            <p>Wooden desk</p>
-            <span>$245.20</span>
-          </div>
-        </div>
+        
+        {
+          images.map(item => {
+            const { title, img, price } = item
+            return(
+              <div className="allProducts-image" key={nanoid()}>
+                  <BsSearch className='allProducts-icon'/>
+                <img src={img} alt={title} className='products-img'/>
+                <div className="allProducts-info">
+                  <p>{title}</p>
+                  <span>${price}</span>
+                </div>
+            </div>
+            )
+            
+          })
+        }
         
       </div>
     </main>
