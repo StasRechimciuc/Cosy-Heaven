@@ -4,6 +4,7 @@ import About from './components/About/About'
 import Products from './components/Products/Products'
 import Navbar from './components/Navbar/Navbar';
 import Loading from './components/loading/Loading'
+import ErrorPage from './components/ErrorPage/ErrorPage'
 
 import { useContext } from 'react';
 import { useGlobalContext } from './context';
@@ -20,9 +21,10 @@ function App() {
       }
      <Navbar />
       <Routes>
-          <Route path='/' element={<Header />} />
-          <Route path="/About" element={<About />} />
-          <Route path='/Products' element={<Products />} />
+          <Route path='/' element={ <Header />} />
+          <Route path="/About" element={ <About />} />
+          <Route path='/Products' element={ <Products />} />
+          <Route path='*' element={ <ErrorPage />} />
       </Routes>
     </div>
   );
