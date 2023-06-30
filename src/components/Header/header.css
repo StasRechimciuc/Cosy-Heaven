@@ -344,7 +344,14 @@ box-shadow: var(--light-shadow);
         flex-direction: column;
     }
   }
-  
+  @media screen and (max-width:990px) {
+    .main-img{
+        width: 400px!important;
+    }
+    .featured__content{
+        margin-top: 5rem;
+    }
+  }
   /* =============SMALL DEVICES(MEDIA QUERY)====================== */
   
   @media screen and (max-width:480px) {

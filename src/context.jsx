@@ -41,34 +41,52 @@ const AppProvider = ({children}) => {
   const [color,setColor] = useState(0)
   const handleColor = color => setColor(color)
 
+/* =============Rendering different images =============== */
+const [render,setRender] = useState(images)
+
 /* =============Category active =============== */
   const [activeCategory,setActiveCategory] = useState(0)
-  const handleActiveCategory = category => setActiveCategory(category)
+  const [selectedCategory,setSelectedCategory] = useState('all')
 
+  const handleActiveCategory = (index,category) => {
+    setActiveCategory(index)
+    setSelectedCategory(category)
+  }
+  const filteredImages = render === 'all' ? images 
+  : images.filter(image => image.categories.includes(selectedCategory))
   /* =============Clear Filtres =============== */
   const clearFiltres = () => {
     setActiveCategory(0)
     setColor(0)
     setValue(3000)
+    setSelectedCategory('all')
   }
   
   return (
         <AppContext.Provider value={{ 
           handleRangeChange,
+
           windowWidth,
           setWindowWidth,
+
           log,
+
           loading,
+
           active,
           setActive,
+
           color,
-          setColor,
           handleColor,
+
           value,
+
           activeCategory,
           setActiveCategory,
           handleActiveCategory,
-          clearFiltres
+          filteredImages,
+
+          clearFiltres,
           }}>
             {children}
         </AppContext.Provider>

@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { useGlobalContext } from '../../context'
 import {Link} from 'react-router-dom'
+
 import images from '../images'
 
 import product1 from '../../assets/product-1.jpeg'
@@ -17,14 +18,13 @@ const Products = () => {
       active,
       setActive,
       color,
-      setColor,
       handleColor,
       value,
       activeCategory,
       handleActiveCategory,
-      clearFiltres
+      clearFiltres,
+      filteredImages
     } = useGlobalContext()
-
      
 
   return (
@@ -42,43 +42,36 @@ const Products = () => {
         <button
          type='button'
          className={activeCategory === 0 ? "products__categories-btn activeCategory" : "products__categories-btn"}
-         onClick={() => handleActiveCategory(0)}
-         >
+         onClick={() => handleActiveCategory(0,'all')}>
             All
           </button>
         <button
          type='button'
          className={activeCategory === 1 ? "products__categories-btn activeCategory" : "products__categories-btn"}
-         onClick={() => handleActiveCategory(1)}
-         >
-            Living
-           Room</button>
+         onClick={() => handleActiveCategory(1,'livingRoom')}>
+          Living Room</button>
         <button
          type='button'
          className={activeCategory === 2 ? "products__categories-btn activeCategory" : "products__categories-btn"}
-         onClick={() => handleActiveCategory(2)}
-         >
+         onClick={() => handleActiveCategory(2,'Kids')}>
             Kids
           </button>
         <button
          type='button'
          className={activeCategory === 3 ? "products__categories-btn activeCategory" : "products__categories-btn"}
-         onClick={() => handleActiveCategory(3)}
-         >
+         onClick={() => handleActiveCategory(3,'Dining')}>
             Dining
           </button>
         <button
          type='button'
          className={activeCategory === 4 ? "products__categories-btn activeCategory" : "products__categories-btn"}
-         onClick={() => handleActiveCategory(4)}
-         >
+         onClick={() => handleActiveCategory(4,'Bedroom')}>
             Bedroom
           </button>
         <button
          type='button'
          className={activeCategory === 5 ? "products__categories-btn activeCategory" : "products__categories-btn"}
-         onClick={() => handleActiveCategory(5)}
-         >
+         onClick={() => handleActiveCategory(5,'Kitchen')}>
             Kitchen
           </button>
       </div>
@@ -160,7 +153,7 @@ const Products = () => {
 
       {active === 'squares' ?
         <div className="allProducts">
-        {images.map(item => {
+        {filteredImages.map(item => {
           const { title, img, price } = item
         return(
       <div className="allProducts-image" key={nanoid()}>
@@ -176,7 +169,7 @@ const Products = () => {
         </div>
         :
         <section className="allProducts-col">
-      {images.map(item => {
+      {filteredImages.map(item => {
         const {title, price, img, description} = item
         return (
       <div className="allProducts-image-col" key={nanoid()}>

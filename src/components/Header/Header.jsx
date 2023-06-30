@@ -1,5 +1,5 @@
 import { useGlobalContext } from '../../context'
-
+/* jeleznabetonna de facut iar header page normal jsx si css */
 import img1 from '../../assets/mainImg.jpeg'
 import img2 from '../../assets/secImg.jpeg'
 
