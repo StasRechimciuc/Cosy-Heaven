@@ -19,11 +19,14 @@ const Products = () => {
       setActive,
       color,
       handleColor,
+      filteredByColor,
       value,
       activeCategory,
       handleActiveCategory,
       clearFiltres,
-      filteredImages
+      filteredByCategory,
+      filteredByPrice,
+      handleOption
     } = useGlobalContext()
      
 
@@ -80,39 +83,39 @@ const Products = () => {
       <div className="products__colors-buttons">
         <button 
         type='button' 
-        className={color === 0 ? 'all-colors all' : 'all-colors'}
-        onClick={() => handleColor(0)}>
+        className={color === 'all' ? 'all-colors all' : 'all-colors'}
+        onClick={() => handleColor('all')}>
           All
          </button>
 
         <button 
         type='button' 
-        className={color === 1 ? 'color-btn red activeColor' : 'color-btn red'}
-        onClick={() => handleColor(1)}>
+        className={color === 'red' ? 'color-btn red activeColor' : 'color-btn red'}
+        onClick={() => handleColor('red')}>
         </button>
 
         <button 
         type='button' 
-        className={color === 2 ? 'color-btn blue activeColor' : 'color-btn blue'}
-        onClick={() => handleColor(2)}>
+        className={color === 'blue' ? 'color-btn blue activeColor' : 'color-btn blue'}
+        onClick={() => handleColor('blue')}>
         </button>
 
         <button 
         type='button' 
-        className={color === 3 ? 'color-btn green activeColor' : 'color-btn green'}
-        onClick={() => handleColor(3)}>
+        className={color === 'green' ? 'color-btn green activeColor' : 'color-btn green'}
+        onClick={() => handleColor('green')}>
         </button>
 
         <button 
         type='button' 
-        className={color === 4 ? 'color-btn black activeColor' : 'color-btn black'} 
-        onClick={() => handleColor(4)}>
+        className={color === 'black' ? 'color-btn black activeColor' : 'color-btn black'} 
+        onClick={() => handleColor('black')}>
         </button>
 
         <button 
         type='button' 
-        className={color === 5 ? 'color-btn white activeColor' : 'color-btn white'}
-        onClick={() => handleColor(5)}>
+        className={color === 'white' ? 'color-btn white activeColor' : 'color-btn white'}
+        onClick={() => handleColor('white')}>
         </button>
 
       </div>
@@ -123,7 +126,7 @@ const Products = () => {
       type="range" 
       min="0"
       max="3000"
-      step="25"
+      step="50"
       value={value} 
       onChange={handleRangeChange} 
       className="products-range"/>
@@ -139,10 +142,12 @@ const Products = () => {
           <button type='button' className={active==='squares' ? 'filters2-squares active' : 'filters2-squares'} onClick={() => setActive('squares')}><FaSortAmountUpAlt /></button>
           <button type='button' className={active === 'bars' ? 'filters2-bars active' : 'filters2-bars'} onClick={() => setActive('bars')}><FaBars /></button>
         </div>
+
+        <h4 className='products__filters2-numbers'>{filteredByPrice.length} Products Found</h4>
         <hr  className='line'/>
         <form className='filters2-form'>
           <label htmlFor="sort" className="products2-label">Sort by</label>
-          <select name="sort" className="sort-input">
+          <select name="sort" className="sort-input" onChange={(e) => handleOption(e)}>
             <option value="price-lowest">price (lowest)</option>
             <option value="price-highest">price (highest)</option>
             <option value="name-a">name (a - z)</option>
@@ -153,7 +158,9 @@ const Products = () => {
 
       {active === 'squares' ?
         <div className="allProducts">
-        {filteredImages.map(item => {
+        {filteredByPrice.length === 0 ?
+         <p className='allProducts-text'>Sorry,no products matched your search.</p> 
+         : filteredByPrice.map(item => {
           const { title, img, price } = item
         return(
       <div className="allProducts-image" key={nanoid()}>
@@ -169,14 +176,16 @@ const Products = () => {
         </div>
         :
         <section className="allProducts-col">
-      {filteredImages.map(item => {
+      {filteredByPrice.length === 0 ?
+         <p className='allProducts-text'>Sorry,no products matched your search.</p> 
+         : filteredByPrice.map(item => {
         const {title, price, img, description} = item
         return (
       <div className="allProducts-image-col" key={nanoid()}>
         <img src={img} alt={title} className='products-img-col'/>
         <div className="allProducts-info-col">
           <h5>{title}</h5>
-          <span className='description-span-col'>{price}</span>
+          <span className='description-span-col'>${price}</span>
           <p className='description-col'>{
             /* half of description */
            description.slice(0,Math.floor(description.length / 2.5))}...</p>
