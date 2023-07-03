@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom'
 
 import images from '../images'
 
-import product1 from '../../assets/product-1.jpeg'
-
 import { nanoid } from 'nanoid'
 
 import {BsSearch} from 'react-icons/bs'
@@ -15,18 +13,28 @@ const Products = () => {
      const { 
       log,
       handleRangeChange,
+
       active,
       setActive,
+
       color,
       handleColor,
-      filteredByColor,
+
       value,
+
       activeCategory,
       handleActiveCategory,
+
       clearFiltres,
-      filteredByCategory,
+
       filteredByPrice,
-      handleOption
+
+      handleOption,
+
+      handleSubmit,
+      handleSearch,
+      searchValue,
+      searchResult
     } = useGlobalContext()
      
 
@@ -38,41 +46,47 @@ const Products = () => {
      </div>
 
     <div className="products-container">
-    <form className="products-filters">
-      <input type="text" placeholder='Search' className='products__search-inp'/>
+    <form className="products-filters" onSubmit={(e) => handleSubmit(e)}>
+      <input 
+      type="text" 
+      placeholder='Search' 
+      className='products__search-inp' 
+      value={searchValue}
+      onChange={handleSearch}
+      />
       <div className="products__categories">
         <h4 className='products-title'>Categories:</h4>
         <button
-         type='button'
+        
          className={activeCategory === 0 ? "products__categories-btn activeCategory" : "products__categories-btn"}
          onClick={() => handleActiveCategory(0,'all')}>
             All
           </button>
         <button
-         type='button'
+        
          className={activeCategory === 1 ? "products__categories-btn activeCategory" : "products__categories-btn"}
          onClick={() => handleActiveCategory(1,'livingRoom')}>
           Living Room</button>
         <button
-         type='button'
+        
          className={activeCategory === 2 ? "products__categories-btn activeCategory" : "products__categories-btn"}
          onClick={() => handleActiveCategory(2,'Kids')}>
             Kids
           </button>
         <button
-         type='button'
+        
          className={activeCategory === 3 ? "products__categories-btn activeCategory" : "products__categories-btn"}
          onClick={() => handleActiveCategory(3,'Dining')}>
             Dining
           </button>
         <button
-         type='button'
+        
          className={activeCategory === 4 ? "products__categories-btn activeCategory" : "products__categories-btn"}
          onClick={() => handleActiveCategory(4,'Bedroom')}>
             Bedroom
           </button>
         <button
-         type='button'
+        
          className={activeCategory === 5 ? "products__categories-btn activeCategory" : "products__categories-btn"}
          onClick={() => handleActiveCategory(5,'Kitchen')}>
             Kitchen
@@ -82,38 +96,38 @@ const Products = () => {
       <h4 className='products-title'>Colors:</h4>
       <div className="products__colors-buttons">
         <button 
-        type='button' 
+       
         className={color === 'all' ? 'all-colors all' : 'all-colors'}
         onClick={() => handleColor('all')}>
           All
          </button>
 
         <button 
-        type='button' 
+       
         className={color === 'red' ? 'color-btn red activeColor' : 'color-btn red'}
         onClick={() => handleColor('red')}>
         </button>
 
         <button 
-        type='button' 
+       
         className={color === 'blue' ? 'color-btn blue activeColor' : 'color-btn blue'}
         onClick={() => handleColor('blue')}>
         </button>
 
         <button 
-        type='button' 
+       
         className={color === 'green' ? 'color-btn green activeColor' : 'color-btn green'}
         onClick={() => handleColor('green')}>
         </button>
 
         <button 
-        type='button' 
+       
         className={color === 'black' ? 'color-btn black activeColor' : 'color-btn black'} 
         onClick={() => handleColor('black')}>
         </button>
 
         <button 
-        type='button' 
+       
         className={color === 'white' ? 'color-btn white activeColor' : 'color-btn white'}
         onClick={() => handleColor('white')}>
         </button>
@@ -132,7 +146,7 @@ const Products = () => {
       className="products-range"/>
       <span className='products-span'>${value}</span>
       </div>
-      <button type='button' className='clear-filters' onClick={clearFiltres}>Clear Filters</button>
+      <button className='clear-filters' onClick={clearFiltres}>Clear Filters</button>
     </form>
 
 
@@ -148,19 +162,19 @@ const Products = () => {
         <form className='filters2-form'>
           <label htmlFor="sort" className="products2-label">Sort by</label>
           <select name="sort" className="sort-input" onChange={(e) => handleOption(e)}>
-            <option value="price-lowest">price (lowest)</option>
-            <option value="price-highest">price (highest)</option>
             <option value="name-a">name (a - z)</option>
             <option value="name-z">name (z - a)</option>
+            <option value="price-lowest">price (lowest)</option>
+            <option value="price-highest">price (highest)</option>
           </select>
         </form>
       </section>
 
       {active === 'squares' ?
         <div className="allProducts">
-        {filteredByPrice.length === 0 ?
+        {searchResult.length === 0 ?
          <p className='allProducts-text'>Sorry,no products matched your search.</p> 
-         : filteredByPrice.map(item => {
+         : searchResult.map(item => {
           const { title, img, price } = item
         return(
       <div className="allProducts-image" key={nanoid()}>
@@ -176,9 +190,9 @@ const Products = () => {
         </div>
         :
         <section className="allProducts-col">
-      {filteredByPrice.length === 0 ?
+      {searchResult.length === 0 ?
          <p className='allProducts-text'>Sorry,no products matched your search.</p> 
-         : filteredByPrice.map(item => {
+         : searchResult.map(item => {
         const {title, price, img, description} = item
         return (
       <div className="allProducts-image-col" key={nanoid()}>

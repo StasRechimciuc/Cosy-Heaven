@@ -55,7 +55,7 @@ const [value, setValue] = useState(3000);
 const handleRangeChange = (event) => {
   setValue(parseInt(event.target.value))
 }
-const filteredByPrice = value === 3000 ? filteredByColor 
+let filteredByPrice = value === 3000 ? filteredByColor 
 : filteredByColor.filter(image => image.price < value)
 
 /* =============Select-Input=============== */
@@ -76,6 +76,27 @@ if(selectedOption === 'price-lowest') {
 }else if(selectedOption === 'name-z') {
   filteredBySort = filteredByPrice.reverse()
 }
+
+/* =============Search-Input=============== */
+  const [searchValue,setSearchValue] = useState('')
+  const [searchResult,setSearchResult] = useState(filteredBySort)
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    if(searchValue !== null) {
+      setSearchValue(searchValue)
+    }
+}
+
+  const handleSearch = e => {
+    const {target} = e
+    setSearchValue(target.value)
+  }
+
+  useEffect(()=> {
+    setSearchResult(filteredBySort.filter(item => item.title.toLocaleLowerCase().includes(searchValue)))
+  },[searchValue,color,value,selectedCategory,selectedOption])
+
   /* =============Clear Filtres =============== */
   const clearFiltres = () => {
     setActiveCategory(0)
@@ -83,38 +104,35 @@ if(selectedOption === 'price-lowest') {
     setValue(3000)
     setSelectedCategory('all')
     setSelectedOption('name-a')
+    setSearchValue('')
   }
   
   return (
         <AppContext.Provider value={{ 
-          
+      log,
+      handleRangeChange,
 
-          windowWidth,
-          setWindowWidth,
+      active,
+      setActive,
 
-          log,
+      color,
+      handleColor,
 
-          loading,
+      value,
 
-          active,
-          setActive,
+      activeCategory,
+      handleActiveCategory,
 
-          color,
-          handleColor,
-          filteredByColor,
+      clearFiltres,
 
-          value,
-          handleRangeChange,
-          filteredByPrice,
+      filteredByPrice,
 
-          activeCategory,
-          setActiveCategory,
-          handleActiveCategory,
-          filteredByCategory,
-
-          handleOption,
-
-          clearFiltres,
+      handleOption,
+      
+      handleSubmit,
+      handleSearch,
+      searchValue,
+      searchResult
           }}>
             {children}
         </AppContext.Provider>
