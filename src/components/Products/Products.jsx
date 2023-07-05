@@ -1,8 +1,6 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { useGlobalContext } from '../../context'
 import {Link} from 'react-router-dom'
-
-import images from '../images'
 
 import { nanoid } from 'nanoid'
 
@@ -34,7 +32,8 @@ const Products = () => {
       handleSubmit,
       handleSearch,
       searchValue,
-      searchResult
+      searchResult,
+
     } = useGlobalContext()
      
 
@@ -175,10 +174,16 @@ const Products = () => {
         {searchResult.length === 0 ?
          <p className='allProducts-text'>Sorry,no products matched your search.</p> 
          : searchResult.map(item => {
-          const { title, img, price } = item
+          const { title, img, price, description } = item
         return(
       <div className="allProducts-image" key={nanoid()}>
-        <BsSearch className='allProducts-icon'/>
+        <Link
+        to={`/Products/${title}`}
+        state={{ title, img, price, description }}
+        className="allProducts-icon"
+        >
+        <BsSearch />
+      </Link>
         <img src={img} alt={title} className='products-img'/>
         <div className="allProducts-info">
           <p>{title}</p>
@@ -203,7 +208,12 @@ const Products = () => {
           <p className='description-col'>{
             /* half of description */
            description.slice(0,Math.floor(description.length / 2.5))}...</p>
+          <Link
+          to={`/Products/${title}`}
+          state={{ title, img, price, description }}
+          >
           <button className="btn btn-col">More</button>
+          </Link>
         </div>
       </div> 
         )

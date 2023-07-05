@@ -1,24 +1,25 @@
-import React, {useContext,useEffect,useState} from 'react'
+import React, {useContext,useEffect,useState, useSyncExternalStore} from 'react'
 import images from './components/images'
+import { useLocation } from 'react-router-dom'
+
 const AppContext = React.createContext()
 
 const AppProvider = ({children}) => {
-  const log = console.log
 
-  /* =============Resize=============== */
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const log = console.log
+  const location = useLocation()
+
+  /* =============Window Width=============== */
+const [windowWidth,setWindowWidth] = useState(window.innerWidth)
+
   useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
-    
-    window.addEventListener('resize', handleWindowResize)
-    
-    return () => {
-      window.removeEventListener('resize', handleWindowResize)
-    }
-  }, [])
-  
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    window.addEventListener('resize',handleResize)
+
+    return (() => window.removeEventListener('resize',handleResize))
+
+  },[])
+
   /* =============Loading=============== */
   const [loading,setLoading] = useState(true)
   useEffect(() => {
@@ -106,11 +107,30 @@ if(selectedOption === 'price-lowest') {
     setSelectedOption('name-a')
     setSearchValue('')
   }
-  
+
+  /* ============ Counter =============== */
+  const [count,setCount] = useState(0)
+
+  /* ============ Select-Extra-Image =============== */
+  const [extraImage,setExtraImage] = useState(null)
+ 
+  useEffect(()=> {
+   location.state ? setExtraImage(location.state.img) : setExtraImage(null)
+  },[location])
+
+  const handleExtraImage = e => {
+    const {target} = e
+    setExtraImage(target.src)
+  }
+
   return (
         <AppContext.Provider value={{ 
       log,
       handleRangeChange,
+
+      windowWidth,
+
+      loading,
 
       active,
       setActive,
@@ -132,7 +152,15 @@ if(selectedOption === 'price-lowest') {
       handleSubmit,
       handleSearch,
       searchValue,
-      searchResult
+      searchResult,
+
+      location,
+
+      count,
+      setCount,
+      
+      extraImage,
+      handleExtraImage
           }}>
             {children}
         </AppContext.Provider>

@@ -10,7 +10,8 @@ import './components/Header/header.css'
 import './components/About/about.css'
 import './components/loading/loading.css'
 import './components/ErrorPage/ErrorPage.css'
-
+import './components/Product/Product.css'
+import './components/Cart/Cart.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

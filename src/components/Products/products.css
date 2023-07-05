@@ -149,6 +149,9 @@
     transform: translate(-50%,-50%);
     font-size: 1.4rem;
     background: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -286,7 +289,10 @@
     .products-img{
         width: 100%!important;
         max-width: 600px;
-        max-height:300px ;
+        max-height:300px;
+    }
+    .allProducts-image{
+        max-width: 400px;
     }
 }
 @media screen and (max-width:1025px) {

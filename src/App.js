@@ -5,6 +5,8 @@ import Products from './components/Products/Products'
 import Navbar from './components/Navbar/Navbar';
 import Loading from './components/loading/Loading'
 import ErrorPage from './components/ErrorPage/ErrorPage'
+import Product from './components/Product/Product';
+import Cart from './components/Cart/Cart'
 
 import { useContext } from 'react';
 import { useGlobalContext } from './context';
@@ -24,6 +26,8 @@ function App() {
           <Route path='/' element={ <Header />} />
           <Route path="/About" element={ <About />} />
           <Route path='/Products' element={ <Products />} />
+          <Route path='/Products/:productId' element={ <Product />} />
+          <Route path='/Cart' element={ <Cart />} />
           <Route path='*' element={ <ErrorPage />} />
       </Routes>
     </div>
