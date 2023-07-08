@@ -13,7 +13,7 @@ import HamburgerMenu from '../Hamburger/Hamburger'
 
 const Navbar = () => {
 
-const { windowWidth } = useGlobalContext()
+const { windowWidth,cart } = useGlobalContext()
 
 
 
@@ -35,11 +35,12 @@ const { windowWidth } = useGlobalContext()
             </ul>
             <div className="header__right">
                 <div className='header__right-cart'>
-                    <a className='header__right-text'>Cart</a>
+                    <Link to='/Cart' className='header__right-text header__right-cart'>Cart</Link>
                     <BsCartPlusFill className='header__icon'/>
+                    <span className="cart-counter">{cart.length}</span>
                 </div>
                 <div className="header__right-login">
-                    <a className='header__right-text'>Login</a>
+                    <Link to='/Login' className='header__right-text'>Login</Link>
                     <GrLogin className='header__icon'/>
                 </div>
             </div>

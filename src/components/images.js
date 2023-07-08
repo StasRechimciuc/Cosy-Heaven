@@ -201,6 +201,4 @@ const images = [
 ]
 
 
-const office = []
-
 export default images

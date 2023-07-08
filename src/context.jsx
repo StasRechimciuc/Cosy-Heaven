@@ -123,6 +123,9 @@ if(selectedOption === 'price-lowest') {
     setExtraImage(target.src)
   }
 
+
+  /* ============ Cart =============== */
+  const cart = []
   return (
         <AppContext.Provider value={{ 
       log,
@@ -160,7 +163,10 @@ if(selectedOption === 'price-lowest') {
       setCount,
       
       extraImage,
-      handleExtraImage
+      handleExtraImage,
+
+      cart,
+
           }}>
             {children}
         </AppContext.Provider>

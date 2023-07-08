@@ -29,14 +29,29 @@
     align-items: center;
     gap: .2rem;
     color: var(--sec-color-variant);
+    font-size: 1.2rem!important;
 }
 .header__right-text{
     transition:var(--transition);
     color: var(--sec-color-variant);
+    position: relative;
 }
 .header__right-text:hover{
     border-bottom: none;
-    transform: translateX(-2px);
+    transform: translateY(-2px);
+}
+.cart-counter{
+    min-width: 25px;
+    min-height: 25px;
+    background: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .95;
+    color: #fff;
+    border-radius: 50%;
+    font-size: .9rem;
+    letter-spacing: .05rem;
 }
 .header__left-title,
 .header__left-span{
