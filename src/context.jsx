@@ -106,10 +106,8 @@ if(selectedOption === 'price-lowest') {
     setSelectedCategory('all')
     setSelectedOption('name-a')
     setSearchValue('')
+    document.querySelector('.sort-input').value='name-a'
   }
-
-  /* ============ Counter =============== */
-  const [count,setCount] = useState(0)
 
   /* ============ Select-Extra-Image =============== */
   const [extraImage,setExtraImage] = useState(null)
@@ -125,7 +123,56 @@ if(selectedOption === 'price-lowest') {
 
 
   /* ============ Cart =============== */
-  const cart = []
+  const [cart,setCart] = useState([])
+
+useEffect(() => {
+  const storedCart = JSON.parse(localStorage.getItem('cart'))
+  storedCart && setCart(storedCart)
+},[])
+
+/* de facut ca cand e deja un item de un fel in cart sa nu il pot adauga */
+const addToCart = () => {
+  const newCartObject = location.state
+  setCart([...cart, newCartObject])
+
+  const existingCartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  const updatedCartItems = [...existingCartItems, newCartObject];
+  setCart(updatedCartItems)
+  localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+}
+
+const deleteFromCart = (index) => {
+  const updatedCart = [...cart]; 
+  updatedCart.splice(index, 1); 
+  setCart(updatedCart);
+  localStorage.setItem('cart',JSON.stringify(updatedCart))
+};
+/* =============== Quantity =================== */
+const [quantity,setQuantity] = useState(1)
+
+const incrementCount = index => {
+  const incremented = [...cart]
+  if(incremented[index].count <= 9 ) {
+    incremented[index].count++
+    setQuantity(incremented[index].count)
+  }
+}
+/* quantity de rezolvat la reload page */
+const decrementCount = index => {
+  const decremented = [...cart]
+  if(decremented[index].count >= 2 ) {
+    decremented[index].count--
+    setQuantity(decremented[index].count)
+  }
+}
+
+/* =============== Clear Cart =================== */
+
+  const handleClearCart = () => {
+    setCart([])
+    localStorage.clear()
+  }
+
   return (
         <AppContext.Provider value={{ 
       log,
@@ -159,14 +206,17 @@ if(selectedOption === 'price-lowest') {
 
       location,
 
-      count,
-      setCount,
-      
       extraImage,
       handleExtraImage,
 
-      cart,
+      cart,setCart,
+      addToCart,deleteFromCart,
 
+      incrementCount,decrementCount,
+
+      quantity,
+
+      handleClearCart
           }}>
             {children}
         </AppContext.Provider>

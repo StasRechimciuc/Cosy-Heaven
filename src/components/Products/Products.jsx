@@ -25,8 +25,6 @@ const Products = () => {
 
       clearFiltres,
 
-      filteredByPrice,
-
       handleOption,
 
       handleSubmit,
@@ -156,7 +154,7 @@ const Products = () => {
           <button type='button' className={active === 'bars' ? 'filters2-bars active' : 'filters2-bars'} onClick={() => setActive('bars')}><FaBars /></button>
         </div>
 
-        <h4 className='products__filters2-numbers'>{filteredByPrice.length} Products Found</h4>
+        <h4 className='products__filters2-numbers'>{searchResult.length} Products Found</h4>
         <hr  className='line'/>
         <form className='filters2-form'>
           <label htmlFor="sort" className="products2-label">Sort by</label>
@@ -174,12 +172,12 @@ const Products = () => {
         {searchResult.length === 0 ?
          <p className='allProducts-text'>Sorry,no products matched your search.</p> 
          : searchResult.map(item => {
-          const { title, img, price, description } = item
+          const { title, img, price, description, color, count } = item
         return(
       <div className="allProducts-image" key={nanoid()}>
         <Link
         to={`/Products/${title}`}
-        state={{ title, img, price, description }}
+        state={{ title, img, price, description, color, count }}
         className="allProducts-icon"
         >
         <BsSearch />
@@ -198,7 +196,7 @@ const Products = () => {
       {searchResult.length === 0 ?
          <p className='allProducts-text'>Sorry,no products matched your search.</p> 
          : searchResult.map(item => {
-        const {title, price, img, description} = item
+        const {title, price, img, description, color, count} = item
         return (
       <div className="allProducts-image-col" key={nanoid()}>
         <img src={img} alt={title} className='products-img-col'/>
@@ -207,10 +205,10 @@ const Products = () => {
           <span className='description-span-col'>${price}</span>
           <p className='description-col'>{
             /* half of description */
-           description.slice(0,Math.floor(description.length / 2.5))}...</p>
+           description.slice(0,Math.floor(description.length / 2))}...</p>
           <Link
           to={`/Products/${title}`}
-          state={{ title, img, price, description }}
+          state={{ title, img, price, description, color, count }}
           >
           <button className="btn btn-col">More</button>
           </Link>

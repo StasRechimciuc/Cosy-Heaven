@@ -19,7 +19,11 @@ const Product = () => {
         count,setCount,
 
         extraImage,
-        handleExtraImage
+        handleExtraImage,
+
+        addToCart,
+        incrementCount,decrementCount
+
     } = useGlobalContext()
 
     const {title,price,img,description} = location.state
@@ -36,7 +40,7 @@ const Product = () => {
                 <img src={extraImage} alt={title} />
                 <div className="extra-images">                
                 {
-                extras.map(extra => (
+                extras.map((extra,index) => (
                     <img
                      src={extra}
                      alt='extra-Image' 
@@ -58,14 +62,9 @@ const Product = () => {
                 <Link to='/Products'><button className="btn">Back to products</button></Link>
                 <div className="available">
                 <h3>Available:</h3>
-                <p>In stock (10)</p>
+                <p>In stock</p>
             </div>
-            <div className="count">
-                <button className="counter-btn" onClick={() => count > 0 ?  setCount(count-1) : setCount(0)}>-</button>
-                <p>{count}</p>
-                <button className="counter-btn" onClick={() => count <=9 ?  setCount(count+1) : setCount(10)}>+</button>
-            </div>
-            <Link to='/Cart'><button className="btn cart-btn">Add to cart</button></Link>
+            <Link to='/Cart'><button className="btn cart-btn" onClick={addToCart}>Add to cart</button></Link>
             </div>
         </div>
     </section>
