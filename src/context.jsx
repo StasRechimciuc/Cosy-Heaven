@@ -51,7 +51,7 @@ const filteredByCategory = images === 'all' ? images
    : filteredByCategory.filter(image => image.color.includes(color)) 
 
 /* =============Range-Input=============== */
-const [value, setValue] = useState(3000);
+const [value, setValue] = useState(3000)
 
 const handleRangeChange = (event) => {
   setValue(parseInt(event.target.value))
@@ -125,49 +125,62 @@ if(selectedOption === 'price-lowest') {
   /* ============ Cart =============== */
   const [cart,setCart] = useState([])
 
-useEffect(() => {
+  useEffect(() => {
   const storedCart = JSON.parse(localStorage.getItem('cart'))
   storedCart && setCart(storedCart)
 },[])
 
-/* de facut ca cand e deja un item de un fel in cart sa nu il pot adauga */
 const addToCart = () => {
   const newCartObject = location.state
-  setCart([...cart, newCartObject])
+  const objectExists = cart.some(item => item.id === newCartObject.id)
 
-  const existingCartItems = JSON.parse(localStorage.getItem('cart')) || [];
-  const updatedCartItems = [...existingCartItems, newCartObject];
-  setCart(updatedCartItems)
-  localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+   if (objectExists) { 
+    alert(`${newCartObject.title} already exists in the cart`)
+    return
+  } else{
+    const updatedCartItems = [...cart, newCartObject]
+    setCart(updatedCartItems)
+    localStorage.setItem('cart', JSON.stringify(updatedCartItems))
+  } 
 }
 
 const deleteFromCart = (index) => {
-  const updatedCart = [...cart]; 
-  updatedCart.splice(index, 1); 
-  setCart(updatedCart);
+  const updatedCart = [...cart] 
+  updatedCart.splice(index, 1) 
+  setCart(updatedCart)
   localStorage.setItem('cart',JSON.stringify(updatedCart))
-};
+}
 /* =============== Quantity =================== */
 const [quantity,setQuantity] = useState(1)
 
-const incrementCount = index => {
+ const incrementCount = index => {
   const incremented = [...cart]
   if(incremented[index].count <= 9 ) {
-    incremented[index].count++
+    incremented[index].count += 1
     setQuantity(incremented[index].count)
   }
 }
-/* quantity de rezolvat la reload page */
+
 const decrementCount = index => {
   const decremented = [...cart]
-  if(decremented[index].count >= 2 ) {
-    decremented[index].count--
+  if(decremented[index].count > 1 ) {
+    decremented[index].count -= 1
     setQuantity(decremented[index].count)
   }
 }
 
-/* =============== Clear Cart =================== */
+/* =============== Total Values =================== */
+const [subTotal,setSubTotal] = useState(0)
 
+useEffect(() => {
+  const totalPrice = cart.reduce((acc,cur) => acc + (cur.price*cur.count) ,0)
+  setSubTotal(totalPrice)
+},[cart.length,quantity,subTotal])
+
+const shoppingFee = 5
+const orderTotal = subTotal + shoppingFee
+
+  /* =============== Clear Cart =================== */
   const handleClearCart = () => {
     setCart([])
     localStorage.clear()
@@ -214,9 +227,9 @@ const decrementCount = index => {
 
       incrementCount,decrementCount,
 
-      quantity,
+      handleClearCart,
 
-      handleClearCart
+      subTotal,shoppingFee,orderTotal,
           }}>
             {children}
         </AppContext.Provider>

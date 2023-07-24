@@ -172,12 +172,12 @@ const Products = () => {
         {searchResult.length === 0 ?
          <p className='allProducts-text'>Sorry,no products matched your search.</p> 
          : searchResult.map(item => {
-          const { title, img, price, description, color, count } = item
+          const { title, img, price, description, color, count, id } = item
         return(
       <div className="allProducts-image" key={nanoid()}>
         <Link
         to={`/Products/${title}`}
-        state={{ title, img, price, description, color, count }}
+        state={{ title, img, price, description, color, count, id }}
         className="allProducts-icon"
         >
         <BsSearch />
@@ -196,7 +196,7 @@ const Products = () => {
       {searchResult.length === 0 ?
          <p className='allProducts-text'>Sorry,no products matched your search.</p> 
          : searchResult.map(item => {
-        const {title, price, img, description, color, count} = item
+        const {title, price, img, description, color, count, id} = item
         return (
       <div className="allProducts-image-col" key={nanoid()}>
         <img src={img} alt={title} className='products-img-col'/>
@@ -208,7 +208,7 @@ const Products = () => {
            description.slice(0,Math.floor(description.length / 2))}...</p>
           <Link
           to={`/Products/${title}`}
-          state={{ title, img, price, description, color, count }}
+          state={{ title, img, price, description, color, count, id }}
           >
           <button className="btn btn-col">More</button>
           </Link>

@@ -8,12 +8,13 @@ const Cart = () => {
 
 const {
   log,
-  cart,setCart,
+  cart,
   deleteFromCart,
   incrementCount,decrementCount,
   handleClearCart,
   windowWidth,
-
+  subTotal,shoppingFee,orderTotal,
+  
 } = useGlobalContext()
 
   return (
@@ -43,7 +44,7 @@ const {
                     <div className="products-cart__info">
                       <h3 className="products-cart__h3">{title}</h3>
                       <p>Color: {color}</p>
-                      {windowWidth <= 1285 && <div className="cart-subtotal"><p>${parseFloat(price * count).toFixed(2)}</p></div>}
+                      {windowWidth <= 1285 && <div><p className="cart-subtotal">${parseFloat(price * count).toFixed(2)}</p></div>}
                     </div>
                   </div>
                  <div className="count">
@@ -52,44 +53,43 @@ const {
                     <button className="counter-btn plus" onClick={() =>incrementCount(index)}>+</button>
                 </div>
                 <div className="cart-price"><p>${price}</p></div>
-                {windowWidth >= 1285 && <div className="cart-subtotal"><p>${parseFloat(price * count).toFixed(2)}</p></div>}
+                {windowWidth >= 1285 && <div><p className="cart-subtotal">${parseFloat(price * count).toFixed(2)}</p></div>}
                 <button className='btn cart-delete' onClick={() => deleteFromCart(index)}><BsFillTrashFill /></button>
             </article>
               )
             })
           }
-            
           <hr className='cart-line '/>
           </div>
-
         </main>
         <div className="cart-buttons">
           <Link to='/Products'><button className="btn">Back to Products</button></Link>
           <button className="btn clear-cart" onClick={handleClearCart}>Clear Cart</button>
         </div>
 
-
         <div className="cart-checkout">
           <div className="cart-checkout__info">
             <div className="checkout-top">
               <div className="checkout-top__subtotal">
                 <h2>Subtotal:</h2>
-                <p>$13131.53</p>
+                <p>${subTotal.toFixed(2)}</p>
                 
               </div>
               <div className="checkout-top__fee">
                 <h2>Shipping fee:</h2>
-                <p>$2.35</p>
+                <p>${shoppingFee.toFixed(2)}</p>
               </div>
               <hr className='cart-line'/>
             </div>
             <div className="checkout-total">
               <h2>Order total:</h2>
-              <h2>$5221.31</h2>
+              <h2>${orderTotal.toFixed(2)}</h2>
             </div>
           </div>
           <button className="btn login-btn">login</button>
         </div>
+
+
       </div>
   : <div className="empty-cart">
     <hr className='cart-line'/>

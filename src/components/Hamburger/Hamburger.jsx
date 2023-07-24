@@ -4,8 +4,12 @@ import { GrLogin } from 'react-icons/gr';
 import './hamburger.css';
 
 import { Link } from 'react-router-dom'
+import { useGlobalContext } from '../../context';
 
 const HamburgerMenu = () => {
+  const {
+    cart
+  } = useGlobalContext()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleMenuToggle = () => {
@@ -29,8 +33,9 @@ const HamburgerMenu = () => {
             </ul>
         <div className="header__right">
           <div className="header__right-cart">
-            <a className="header__right-text">Cart</a>
-            <BsCartPlusFill className="header__icon" />
+            <Link to='/Cart' className="header__right-text" onClick={handleMenuToggle}>Cart</Link>
+           <BsCartPlusFill className="header__icon"/>
+            <span className="cart-counter">{cart.length}</span>
           </div>
           <div className="header__right-login">
             <a className="header__right-text">Login</a>
