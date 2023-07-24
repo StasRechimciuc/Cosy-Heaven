@@ -7,8 +7,8 @@ import Loading from './components/loading/Loading'
 import ErrorPage from './components/ErrorPage/ErrorPage'
 import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart'
+import Login from './components/Login/Login';
 
-import { useContext } from 'react';
 import { useGlobalContext } from './context';
 
 import { Route, Routes } from 'react-router-dom';
@@ -28,6 +28,7 @@ function App() {
           <Route path='/Products' element={ <Products />} />
           <Route path='/Products/:productId' element={ <Product />} />
           <Route path='/Cart' element={ <Cart />} />
+          <Route path='/Login' element={<Login /> } />
           <Route path='*' element={ <ErrorPage />} />
       </Routes>
     </div>

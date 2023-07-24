@@ -38,7 +38,7 @@ const HamburgerMenu = () => {
             <span className="cart-counter">{cart.length}</span>
           </div>
           <div className="header__right-login">
-            <a className="header__right-text">Login</a>
+            <Link to='/Login' className="header__right-text" onClick={handleMenuToggle}>Login</Link>
             <GrLogin className="header__icon" />
           </div>
         </div>

@@ -186,6 +186,11 @@ const orderTotal = subTotal + shoppingFee
     localStorage.clear()
   }
 
+
+/* =============== Login =================== */
+
+  const [login,setLogin] = useState(false)
+
   return (
         <AppContext.Provider value={{ 
       log,
@@ -230,6 +235,8 @@ const orderTotal = subTotal + shoppingFee
       handleClearCart,
 
       subTotal,shoppingFee,orderTotal,
+
+      login,setLogin
           }}>
             {children}
         </AppContext.Provider>

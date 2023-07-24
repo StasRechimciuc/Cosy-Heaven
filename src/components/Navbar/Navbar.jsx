@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import '../../App.css'
 import './navbar.css'
+
 import { useGlobalContext } from '../../context'
 
 import {BsCartPlusFill} from 'react-icons/bs'
@@ -14,8 +15,6 @@ import HamburgerMenu from '../Hamburger/Hamburger'
 const Navbar = () => {
 
 const { windowWidth,cart } = useGlobalContext()
-
-
 
   return (
     <nav className='navbar'>

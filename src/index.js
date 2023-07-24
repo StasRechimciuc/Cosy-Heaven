@@ -12,6 +12,7 @@ import './components/loading/loading.css'
 import './components/ErrorPage/ErrorPage.css'
 import './components/Product/Product.css'
 import './components/Cart/Cart.css'
+import './components/Login/Login.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

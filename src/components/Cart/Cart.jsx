@@ -86,9 +86,8 @@ const {
               <h2>${orderTotal.toFixed(2)}</h2>
             </div>
           </div>
-          <button className="btn login-btn">login</button>
+          <Link to='/Login' className="btn login-btn">login</Link>
         </div>
-
 
       </div>
   : <div className="empty-cart">
