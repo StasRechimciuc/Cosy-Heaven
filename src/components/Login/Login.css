@@ -22,12 +22,14 @@
 }
 .login-title{
     font-size: 1.5rem!important;
+    margin: 2rem 0;
 }
 .login-icon{
     font-size: 2.5rem;
     background: var(--main-color);
     width: 100%;
     height: 50px;
+    color: #fff;
 }
 .logOrSign{
     display: grid;
@@ -77,4 +79,14 @@
 .login-submit:hover{
     opacity: .7;
     color: #000;
+}
+.logout{
+    box-shadow: -8px 18px 10px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1);;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    width: 300px;
+    height: 400px;
 }

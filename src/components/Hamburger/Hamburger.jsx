@@ -8,14 +8,15 @@ import { useGlobalContext } from '../../context';
 
 const HamburgerMenu = () => {
   const {
-    cart
+    cart,
+    isLogged
   } = useGlobalContext()
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   }
-
 
   return (
     <div>
@@ -38,7 +39,7 @@ const HamburgerMenu = () => {
             <span className="cart-counter">{cart.length}</span>
           </div>
           <div className="header__right-login">
-            <Link to='/Login' className="header__right-text" onClick={handleMenuToggle}>Login</Link>
+            <Link to='/Login' className="header__right-text" onClick={handleMenuToggle}>{!isLogged ? 'Login' : 'Logout'}</Link>
             <GrLogin className="header__icon" />
           </div>
         </div>

@@ -191,7 +191,77 @@ const orderTotal = subTotal + shoppingFee
 
   const [login,setLogin] = useState(false)
 
-  return (
+  const [name,setName] = useState('')
+  const [family,setFamily] = useState('')
+  const [email,setEmail] = useState('')
+  const [password,setPassword] = useState('')
+  const [isLogged,setIsLogged] = useState(false)
+  const [users,setUsers] = useState([])
+
+const handleName = (e) => {
+  setName(e.target.value)
+} 
+const handleFamily = (e) => {
+  setFamily(e.target.value)
+} 
+const handleEmail = (e) => {
+  setEmail(e.target.value)
+} 
+const handlePassword = (e) => {
+  setPassword(e.target.value)
+} 
+
+
+const handleLogin = (e) => {
+  e.preventDefault()
+  
+  if (login && email !== '' && password !== '') {
+    const user = users.find(user => user.email === email && user.password === password)
+    if (user) {
+      setIsLogged(true)
+      setName(user.name)
+      setUsers(prevUsers => prevUsers.map(u => (u.email === email ? user : u)))
+      localStorage.setItem('user', JSON.stringify(user))
+    } else {
+      alert('Incorrect password or email!')
+    }
+  } else if (!login && name !== '' && family !== '' && email !== '' && password !== '') {
+    const newUser = { name, family, email, password }
+    setUsers([...users, newUser])
+    setIsLogged(true)
+    setName(newUser.name)
+    localStorage.setItem('user', JSON.stringify(newUser))
+    localStorage.setItem('users', JSON.stringify([...users, newUser]))
+  } else {
+    alert('Please complete all fields')
+  }
+}
+
+const handleLogout = e => {
+  e.preventDefault()
+  setIsLogged(false)
+  localStorage.removeItem('name')
+  setName('')
+  setFamily('')
+  setEmail('')
+  setPassword('')
+}
+
+
+useEffect(() => {
+  const storedUsers = JSON.parse(localStorage.getItem('users')) || []
+  setUsers(storedUsers)
+}, [])
+
+useEffect(() => {
+  const storedUser = JSON.parse(localStorage.getItem('user'))
+  if (storedUser) {
+    setIsLogged(true)
+    setName(storedUser.name)
+  }
+}, [])
+
+return (
         <AppContext.Provider value={{ 
       log,
       handleRangeChange,
@@ -236,9 +306,17 @@ const orderTotal = subTotal + shoppingFee
 
       subTotal,shoppingFee,orderTotal,
 
-      login,setLogin
-          }}>
-            {children}
+      login,setLogin,
+
+      name,handleName,
+      family,handleFamily,
+      email,handleEmail,
+      password,handlePassword,
+
+      handleLogin,handleLogout,
+      isLogged,
+      }}>
+      {children}
         </AppContext.Provider>
   )
 }

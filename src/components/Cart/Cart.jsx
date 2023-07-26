@@ -14,7 +14,7 @@ const {
   handleClearCart,
   windowWidth,
   subTotal,shoppingFee,orderTotal,
-  
+  isLogged,
 } = useGlobalContext()
 
   return (
@@ -86,7 +86,10 @@ const {
               <h2>${orderTotal.toFixed(2)}</h2>
             </div>
           </div>
-          <Link to='/Login' className="btn login-btn">login</Link>
+          {!isLogged ? 
+          <Link to='/Login' className="btn login-btn">login</Link> :
+           <button className='btn'>Proceed to payout</button>
+          }
         </div>
 
       </div>
