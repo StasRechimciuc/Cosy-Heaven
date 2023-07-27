@@ -6,154 +6,106 @@
     justify-content: space-between;
   }
   
-  .location {
-    background: rgb(227, 215, 189);
-    height: 20vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 2rem;
-    margin: 2rem 0;
+.location {
+  background: rgb(227, 215, 189);
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  margin: 2rem 0;
+}
+
+.location h1 {
+  color: #5e4639;
+}
+
+.location a {
+  color: rgb(158, 132, 87);
+  transition: var(--transition);
+}
+
+.location a:hover {
+  color: #5e4639;
+  border-bottom: 0;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 2rem 3rem 2rem;
+  gap: 1rem;
+}
+
+.about-article{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.about-article__img{
+  width: 300px!important;
+  border-radius: 30%;
+}
+.about-line{
+  width: 500px;
+  height: 5px;
+  background: #ad8686;
+  margin-left: 150px;
+}
+.about-line:nth-child(2){
+  margin-left: -250px;
+}
+.about-article__info{
+  width: 40%;
+  font-size: 1.2rem;
+  color: rgb(73, 73, 232);
+  background: #010101;
+  padding: 1rem;
+  border-radius: var(--border);
+}
+.about-article__title{
+  margin-bottom: 1rem;
+  letter-spacing: var(--spacing);
+  color: var(--main-color);
+}
+.about-article__p{
+  line-height: 1.8rem;
+}
+@media screen and (max-width:910px) {
+    .about-article__info{
+      width: 50%;
+    }
+}
+@media screen and (max-width:803px) {
+    .about-article__img{
+      width: 200px!important;
+    }
+    .about-article__title{
+      font-size: 1.1rem!important;
+    }
+    .about-article__p{
+      font-size: 1rem;
+      line-height: 1.6rem;
+    }
+}
+@media screen and (max-width:667px) {
+  .about-line{
+    height: 3px;
+    width: 100%;
   }
-  
-  .location h1 {
-    color: #5e4639;
-  }
-  
-  .location a {
-    color: rgb(158, 132, 87);
-    transition: var(--transition);
-  }
-  
-  .location a:hover {
-    color: #5e4639;
-    border-bottom: 0;
-  }
-  
-  .about-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0 2rem 3rem 2rem;
+  .about-article{
+    flex-direction: column;
     gap: 1rem;
   }
-  
-  .about__info {
-    height: 440px;
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .about-article__info{
+    width: 100%;
   }
-  
-  .about__info-story h2 {
-    border-bottom: 3px solid var(--main-color);
-    display: inline-block;
-    letter-spacing: 7px;
-    margin-bottom: 1rem;
+  .about-article__img{
+    width: 70%!important;
+    height: 200px;
   }
-  
-  .about__info-story p {
-    line-height: 35px;
-    font-size: 1.15rem;
-  }
-  
-  .about__info-cards {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 0.5rem;
-  }
-  
-  .about__info-card {
-    background-color: #1c2b40;
-    width: 340px;
-    padding: 20px;
-    border-radius: var(--border);
-  }
-  
-  .about__info-card h5 {
-    color: #ffffff;
-    letter-spacing: 10px;
-    text-transform: uppercase;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
-    margin-bottom: 10px;
-    font-size: 1.5rem!important;
-  }
-  
-  .about__info-card p {
-    line-height: 33px;
-    color: #f5deb3;
-    font-size: 1.2rem;
-  }
-  
-  /* ============= RESPONSIVE MEDIA QUERIES ============= */
-  
-  @media screen and (max-width: 1244px) {
-    .about__info{
-        width: 75%;
-        text-align: center;
-    }
-  }
-
-  @media screen and (max-width: 1024px) {
-    .about__info {
-        width: 80%;
-    }
-    .about__info h5{
-        font-size: 1.6rem!important;
-    }
-  }
- 
-  @media screen and (max-width: 930px) {
-    .about__info-card {
-        width: 300px;
-    }
-  }
-
-  @media screen and (max-width: 830px) {
-    .about__info-card {
-        width: 270px;
-    }
-  } 
-
-  @media screen and (max-width: 768px) {
-    .about__info {
-      width: 80%;
-    }
-    .about__info-cards{
-        flex-direction: column;
-        gap: 2rem;
-    }
-    .about__info-card {
-      width: 100%;
-      text-align: center;
-    }
-    .about__info-card h5{
-        font-size: 1.5rem!important;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .location {
-      padding-left: 1rem;
-    }
-    
-    .about__info-story h2 {
-      font-size: 1.5rem;
-    }
-    
-    .about__info-story p {
-      font-size: 1rem;
-    }
-    
-    .about__info-cards {
-      margin-left: -2.5rem;
-    }
-    
-    .about__info-card {
-      width: 350px;
-      margin-bottom: 1rem;
-    }
-  }
-  
+}

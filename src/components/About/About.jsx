@@ -1,9 +1,14 @@
 import React from 'react'
 import { useGlobalContext } from '../../context'
 import { Link } from 'react-router-dom'
+import img1 from '../../assets/about1.jpg' 
+import img2 from '../../assets/about2.jpg' 
+import img3 from '../../assets/employees.jpg' 
 
 const About = () => {
-        const {  } = useGlobalContext()
+        const { 
+          windowWidth
+         } = useGlobalContext()
 
   return (
     <section className='about'>
@@ -13,26 +18,39 @@ const About = () => {
     </div>
     
     <main className='about-container'>
-      <img src="https://www.designboom.com/wp-content/uploads/2021/04/free-interactive-software-easily-complex-japanese-wooden-joints-furniture-designboom-818.jpg" alt="About image" />
-      <div className="about__info">
-
-        <article className="about__info-story">
-          <h2>Story</h2>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, quam quo assumenda soluta eius nesciunt delectus vitae esse exercitationem iste! Fugiat qui quibusdam sed dolorum voluptatibus, inventore amet blanditiis aut corporis sapiente maxime accusamus ea porro cumque provident earum dolore laborum! Aut magnam odit quas nihil doloribus laudantium quod hic.</p>
-        </article>
-
-        <div className="about__info-cards">
-          <article className="about__info-card">
-          <h5>Employees</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, iure pariatur! Soluta accusamus quasi dolor dolore ratione, minus possimus sapiente!</p>
-        </article>
-        <article className="about__info-card">
-        <h5>Services</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, iure pariatur! Soluta accusamus quasi dolor dolore ratione, minus possimus sapiente!</p>
-        </article>
+      <article className="about-article">
+        <img src={img1} alt="image" className='about-article__img'/>
+        <div className="about-article__info">
+          <h3 className="about-article__title">Who we are</h3>
+          <p className="about-article__p">Lorem ipsum dolor sit, amet consectetur adipisicing elit.possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum omnis iure veniam saepeVero adipisci repellendus exercitationem architecto nam tempora sint incidunt temporibus possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum!</p>
         </div>
-        
+      </article>
+
+      {windowWidth > 667 &&<span className='about-line'></span>}
+      {windowWidth > 667 ? <article className="about-article">
+        <div className="about-article__info">
+          <h3 className="about-article__title">What are we doing</h3>
+          <p className="about-article__p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero adipisci repellendus nt tempociis eveniet voluptatum omnis iure veniam saepe!Vero adipisci repellendus exercitationem architecto nam tempora sint incidunt temporibus possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum</p>
+        </div>
+        <img src={img2} alt="image" className='about-article__img'/>
+      </article> : 
+      <article className="about-article">
+      <img src={img2} alt="image" className='about-article__img'/>
+      <div className="about-article__info">
+        <h3 className="about-article__title">What are we doing</h3>
+        <p className="about-article__p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero adipisci repellendus nt tempociis eveniet voluptatum omnis iure veniam saepe!Vero adipisci repellendus exercitationem architecto nam tempora sint incidunt temporibus possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum</p>
       </div>
+    </article>
+      }
+
+      {windowWidth > 667 &&<span className='about-line'></span>}
+      <article className="about-article">
+        <img src={img3} alt="image" className='about-article__img'/>
+        <div className="about-article__info">
+          <h3 className="about-article__title">Our employees</h3>
+          <p className="about-article__p">Lorem ipsum dolor sit, amet consectetur adipisicing elit.possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum omnis iure veniam saepeVero adipisci repellendus exercitationem architecto nam tempora sint incidunt temporibus possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum!</p>
+        </div>
+      </article>
     </main>
 
     </section>
