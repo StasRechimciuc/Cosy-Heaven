@@ -1,5 +1,5 @@
 import { useGlobalContext } from '../../context'
-/* jeleznabetonna de facut iar header page normal jsx si css */
+
 import img1 from '../../assets/mainImg.jpeg'
 import img2 from '../../assets/secImg.jpeg'
 
@@ -22,7 +22,7 @@ const Header = () => {
                 corporis doloremque possimus velit! 
                 corporis doloremque possimus velit! 
             </p>
-            <Link to="/Products"><button className="btn featured__content-btn">Shop Now</button></Link>
+            <Link to="/Products"><button className="btn hero-btn">Shop Now</button></Link>
         </div>
         <div className="hero__right">
             <div className="images">
@@ -42,19 +42,16 @@ const Header = () => {
             <div className="featured__content-images">
                 <div className="featured__content-img">
                         <img src="https://www.course-api.com/images/store/product-7.jpeg" alt="featuredImg1" className="img" />
-                    <div className="overlay">
-                        <BsSearch className='searchIcon'/>
-                    </div>
+                        <Link to='/Products'><BsSearch className='searchIcon'/></Link>
+                    
                     <div className="featured__content-info">
-                        <p>Wooden Gardrobe</p>
+                        <p>Entertainment Center</p>
                         <span>$360.88</span>
                     </div>
                 </div>
                 <div className="featured__content-img">
                     <img src="https://www.course-api.com/images/store/product-8.jpeg" alt="featuredImg2" className="img" />
-                    <div className="overlay">
-                        <BsSearch className='searchIcon'/>
-                    </div>
+                        <Link to='/Products'><BsSearch className='searchIcon'/></Link>
                     <div className="featured__content-info">
                         <p>Wooden desk</p>
                         <span>$245.20</span>
@@ -62,9 +59,7 @@ const Header = () => {
                 </div>
                 <div className="featured__content-img">
                     <img src="https://www.course-api.com/images/store/product-10.jpeg" alt="featuredImg3" className="img" />
-                    <div className="overlay">
-                        <BsSearch className='searchIcon'/>
-                    </div>
+                        <Link to='/Products'><BsSearch className='searchIcon'/></Link>
                     <div className="featured__content-info">
                         <p>Leather Sofa</p>
                         <span><s>$450.99</s>  $370.00</span>
