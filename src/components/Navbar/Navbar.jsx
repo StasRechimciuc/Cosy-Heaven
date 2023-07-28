@@ -17,7 +17,6 @@ const Navbar = () => {
 const { windowWidth,
     cart,
     isLogged,
-    name
 } = useGlobalContext()
 
   return (

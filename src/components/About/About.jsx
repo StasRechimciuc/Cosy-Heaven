@@ -18,39 +18,12 @@ const About = () => {
     </div>
     
     <main className='about-container'>
-      <article className="about-article">
-        <img src={img1} alt="image" className='about-article__img'/>
-        <div className="about-article__info">
-          <h3 className="about-article__title">Who we are</h3>
-          <p className="about-article__p">Lorem ipsum dolor sit, amet consectetur adipisicing elit.possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum omnis iure veniam saepeVero adipisci repellendus exercitationem architecto nam tempora sint incidunt temporibus possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum!</p>
-        </div>
-      </article>
-
-      {windowWidth > 667 &&<span className='about-line'></span>}
-      {windowWidth > 667 ? <article className="about-article">
-        <div className="about-article__info">
-          <h3 className="about-article__title">What are we doing</h3>
-          <p className="about-article__p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero adipisci repellendus nt tempociis eveniet voluptatum omnis iure veniam saepe!Vero adipisci repellendus exercitationem architecto nam tempora sint incidunt temporibus possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum</p>
-        </div>
-        <img src={img2} alt="image" className='about-article__img'/>
-      </article> : 
-      <article className="about-article">
-      <img src={img2} alt="image" className='about-article__img'/>
-      <div className="about-article__info">
-        <h3 className="about-article__title">What are we doing</h3>
-        <p className="about-article__p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero adipisci repellendus nt tempociis eveniet voluptatum omnis iure veniam saepe!Vero adipisci repellendus exercitationem architecto nam tempora sint incidunt temporibus possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum</p>
+      <img src={img2} alt="About us image" className='about-img'/>
+      <div className="about-info">
+        <h2 className='about-info__h2'>About us</h2>
+        <hr />
+        <p className='about-info__text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi laborum iusto porro, voluptatem eum eius obcaecati ratione rerum id consequuntur repellendus accusamus vitae unde sequi dolor officiis, illo qui mollitia! Sequi deleniti porro veritatis, quo non voluptatibus aliquid maxime dolor aut deserunt aspernatur incidunt ipsa laborum omnis nihil quas cupiditate!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi laborum iusto porro, voluptatem eum eius obcaecati ratione rerum id consequuntur repellendus accusamus vitae unde sequi dolor officiis, illo qui mollitia! Sequi deleniti porro veritatis, quo non voluptatibus aliquid maxime dolor aut deserunt aspernatur incidunt ipsa laborum omnis nihil quas cupiditate!</p>
       </div>
-    </article>
-      }
-
-      {windowWidth > 667 &&<span className='about-line'></span>}
-      <article className="about-article">
-        <img src={img3} alt="image" className='about-article__img'/>
-        <div className="about-article__info">
-          <h3 className="about-article__title">Our employees</h3>
-          <p className="about-article__p">Lorem ipsum dolor sit, amet consectetur adipisicing elit.possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum omnis iure veniam saepeVero adipisci repellendus exercitationem architecto nam tempora sint incidunt temporibus possimus. Voluptatibus sunt ducimus odio officiis eveniet voluptatum!</p>
-        </div>
-      </article>
     </main>
 
     </section>
